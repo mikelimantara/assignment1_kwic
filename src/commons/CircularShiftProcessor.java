@@ -30,8 +30,8 @@ public class CircularShiftProcessor implements SentenceProcessor {
 					stringBuilder.append(" ");
 				}
 			}
-			// Pass the data to outgoing pipe
 			stringResults.add(stringBuilder.toString());
+			
 			// Clear the string builder
 			stringBuilder.setLength(0);
 		}
