@@ -22,6 +22,6 @@ public class CPipe implements Pipe {
 			return null;
 		}
 		
-		return dataBuffer.get(0);
+		return dataBuffer.remove(0);
 	}
 }
