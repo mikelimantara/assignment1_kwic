@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 
+import commons.NoiseWordProcessor;
+
 
 public class NoiseWordProcessorTest {
 	NoiseWordProcessor processor;

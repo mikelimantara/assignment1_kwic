@@ -1,4 +1,5 @@
-package pipes_and_filters;
+package commons;
+
 
 public interface SentenceProcessorDelegate {
 	public void processorDidFinishProcessing(SentenceProcessor processor, String result);

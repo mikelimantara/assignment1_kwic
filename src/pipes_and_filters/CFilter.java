@@ -1,5 +1,8 @@
 package pipes_and_filters;
 
+import commons.SentenceProcessor;
+import commons.SentenceProcessorDelegate;
+
 
 public class CFilter implements Filter, SentenceProcessorDelegate {
 	private Pipe incomingPipe;

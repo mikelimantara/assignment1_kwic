@@ -1,4 +1,5 @@
-package pipes_and_filters;
+package commons;
+
 
 public interface SentenceProcessor {
 	public void processData(String input); 

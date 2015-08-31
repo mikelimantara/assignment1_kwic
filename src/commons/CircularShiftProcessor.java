@@ -1,4 +1,4 @@
-package pipes_and_filters;
+package commons;
 
 import java.util.ArrayList;
 
