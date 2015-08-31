@@ -4,11 +4,17 @@ import java.util.ArrayList;
 
 public class CircularShiftFilter implements Filter {
 	
+	private Pipe incomingPipe;
 	private Pipe outgoingPipe;
 	private StringBuilder stringBuilder;
 	
 	public CircularShiftFilter() {
 		this.stringBuilder = new StringBuilder();
+	}
+	
+	@Override
+	public void setOutgoingPipe(Pipe outgoingPipe) {
+		this.outgoingPipe = outgoingPipe;
 	}
 
 	@Override
@@ -49,5 +55,4 @@ public class CircularShiftFilter implements Filter {
 		
 		return stringResults;	
 	}
-	
 }
