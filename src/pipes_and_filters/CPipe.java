@@ -24,4 +24,16 @@ public class CPipe implements Pipe {
 		
 		return dataBuffer.remove(0);
 	}
+	
+	public String getDataAtPosition(int position) {
+		if (position < 0 && position >= dataBuffer.size()) {
+			return null;
+		}
+		
+		return dataBuffer.get(position);
+	}
+	
+	public int getDataBufferSize() {
+		return dataBuffer.size();
+	}
 }
