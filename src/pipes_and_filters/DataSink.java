@@ -13,7 +13,6 @@ public class DataSink extends Thread {
 			String processedData = incomingPipe.getData();
 
 			if (processedData == "END") {
-				System.out.println("Data sink finished");
 				break;
 			} 
 			
