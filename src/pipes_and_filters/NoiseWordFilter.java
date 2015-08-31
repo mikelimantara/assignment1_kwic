@@ -1,52 +1,25 @@
 package pipes_and_filters;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
-public class NoiseWordFilter implements Filter {
-	private ArrayList<String> noiseWords = new ArrayList<String>();
+public class NoiseWordFilter implements Filter, SentenceProcessorDelegate {
+	private Pipe incomingPipe;
 	private Pipe outgoingPipe;
+	private SentenceProcessor noiseWordProcessor;
 	
-	public NoiseWordFilter(Pipe outgoingPipe) {
+	@Override
+	public void setIncomingPipe(Pipe incomingPipe) {
+		this.incomingPipe = incomingPipe;
+	}
+	
+	@Override
+	public void setOutgoingPipe(Pipe outgoingPipe) {
 		this.outgoingPipe = outgoingPipe;
 	}
 	
 	@Override
-	public void processDataAndPushResult(String input) {
-		String stringToPush = processDataAndReturnResult(input);
-		if (stringToPush != null) {
-			outgoingPipe.addData(stringToPush);
-		}
-	}
-
-	public String processDataAndReturnResult(String input) {
-		// get first word
-		int firstSpaceIndex = input.indexOf(' ');
-		String firstWord = input.substring(0, firstSpaceIndex);
-		
-		// standardize format
-		firstWord = standardFormat(firstWord);
-		int insertIndex = Collections.binarySearch(noiseWords, firstWord);
-		
-		if (!noiseWords.get(insertIndex).equals(firstWord)) {
-			return input;
-		} else {
-			return null;
-		}
-	}
-	
-	public void setNoiseWordList(List<String> noiseWords) {
-		for (String word: noiseWords) {
-			this.noiseWords.add(standardFormat(word));
-		}
-		Collections.sort(this.noiseWords);
-	}
-	
-	private String standardFormat(String word) {
-		word = word.trim();
-		word = word.toLowerCase();
-		return word;
+	public void processorDidFinishProcessing(SentenceProcessor processor,
+			String result) {
+		outgoingPipe.addData(result);
 	}
 
 }

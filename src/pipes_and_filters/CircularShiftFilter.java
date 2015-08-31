@@ -24,4 +24,9 @@ public class CircularShiftFilter implements Filter {
 			stringBuilder.setLength(0);
 		}
 	}
+
+	@Override
+	public void setOutgoingPipe(Pipe outgoingPipe) {
+		this.outgoingPipe = outgoingPipe;
+	}
 }
