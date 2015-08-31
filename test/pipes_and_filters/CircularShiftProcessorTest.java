@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import commons.CircularShiftProcessor;
 
-public class CircularShiftFilterTest {
+public class CircularShiftProcessorTest {
 	
 	CircularShiftProcessor processor;
 	
