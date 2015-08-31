@@ -10,16 +10,16 @@ import org.junit.Test;
 
 public class CircularShiftFilterTest {
 	
-	CircularShiftFilter filter;
+	CircularShiftProcessor processor;
 	
 	@Before
 	public void init() {
-		filter = new CircularShiftFilter();
+		processor = new CircularShiftProcessor();
 	}
 	
 	@After
 	public void destroy() {
-		filter = null;
+		processor = null;
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ public class CircularShiftFilterTest {
 				"dog The quick brown fox jumps over the lazy"
 		};
 		
-		ArrayList<String> stringResults = filter.processDataAndReturnResult(input);
+		ArrayList<String> stringResults = processor.permutationsOfSentence(input);
 		
 		boolean isCorrect = true;
 		

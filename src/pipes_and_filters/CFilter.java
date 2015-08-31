@@ -1,7 +1,7 @@
 package pipes_and_filters;
 
 
-public class NoiseWordFilter implements Filter, SentenceProcessorDelegate {
+public class CFilter implements Filter, SentenceProcessorDelegate {
 	private Pipe incomingPipe;
 	private Pipe outgoingPipe;
 	private SentenceProcessor noiseWordProcessor;

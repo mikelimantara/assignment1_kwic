@@ -51,6 +51,11 @@ public class NoiseWordProcessorTest {
 	
 	@Test
 	public void testBlockAllInput() {
+		String[] noiseWords = {
+				"hello ", "MIKE123", "tHe  ", " andhieka@iclOud.com "
+		};
+		processor.setNoiseWordList(Arrays.asList(noiseWords));
+		
 		for (String sentence: testSentences) {
 			boolean isBlocked = processor.beginsWithNoiseWord(sentence);
 			assertTrue(isBlocked);
