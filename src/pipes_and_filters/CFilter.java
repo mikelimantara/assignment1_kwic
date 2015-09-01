@@ -37,9 +37,7 @@ public class CFilter extends Thread implements Filter, SentenceProcessorDelegate
 			String inputData = incomingPipe.getData();
 		
 			if (inputData == "END") {
-				if (sentenceProcessor instanceof SortingProcessor) {
-					sentenceProcessor.flush();
-				}
+				sentenceProcessor.flush();
 				
 				outgoingPipe.addData("END");
 				
