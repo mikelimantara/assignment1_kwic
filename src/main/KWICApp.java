@@ -12,7 +12,8 @@ public class KWICApp {
 	
 	public static void main(String[] args) {
 		KWICApp app = new KWICApp();
-		app.run();
+//		app.run();
+		printHelp();
 	}
 	
 	public void run() {
@@ -50,6 +51,18 @@ public class KWICApp {
 		kwicSolver.setInputSentences(inputSentences);
 		kwicSolver.setNoiseWords(noiseWords);
 		kwicSolver.solve();
+	}
+	
+	private static void printHelp() {
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Usage Instruction:");
+		System.out.println();
+		System.out.println("Command format: KWICApp -m <MODE> -i <INPUT FILE> -n <NOISE WORDS FILE>");
+		System.out.println("OPTIONS:");
+		System.out.println("<MODE> - choose the architecture to solve KWIC [pipe OR repo]");
+		System.out.println("<INPUT FILE> - provide filename containing list of sentences to be indexed");
+		System.out.println("<NOISE WORDS FILE> - provide filename containing list of words to be ignored");
+		System.out.println("----------------------------------------------------------------------------");
 	}
 	
 }
