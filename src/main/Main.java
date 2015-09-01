@@ -2,6 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
+import pipes_and_filters.PipeAndFilterKWIC;
+
 public class Main {
 	public static void main(String[] args) {
 		ArrayList<String> initialInput = new ArrayList<String>();
