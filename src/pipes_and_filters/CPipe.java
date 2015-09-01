@@ -1,14 +1,15 @@
 package pipes_and_filters;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class CPipe implements Pipe {
 	
-	public ArrayList<String> dataBuffer;
+	public LinkedList<String> dataBuffer;
 	public Filter outgoingFilter;
 	
 	public CPipe() {
-		dataBuffer = new ArrayList<String>();
+		dataBuffer = new LinkedList<String>();
 	}
 
 	@Override

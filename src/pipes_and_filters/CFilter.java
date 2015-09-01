@@ -23,6 +23,7 @@ public class CFilter extends Thread implements Filter, SentenceProcessorDelegate
 	@Override
 	public void setSentenceProcessor(SentenceProcessor sentenceProcessor) {
 		this.sentenceProcessor = sentenceProcessor;
+		sentenceProcessor.setDelegate(this);
 	}
 	
 	@Override

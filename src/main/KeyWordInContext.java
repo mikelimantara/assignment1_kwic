@@ -45,15 +45,14 @@ public class KeyWordInContext {
 		f1.setIncomingPipe(p1);
 		f1.setOutgoingPipe(p2);
 		f1.setSentenceProcessor(circularShiftProcessor);
-		circularShiftProcessor.setDelegate(f1);
+		
 		f2.setIncomingPipe(p2);
 		f2.setOutgoingPipe(p3);
 		f2.setSentenceProcessor(noiseWordProcessor);
-		noiseWordProcessor.setDelegate(f2);
+		
 		f3.setIncomingPipe(p3);
 		f3.setOutgoingPipe(p4);
 		f3.setSentenceProcessor(sortingProcessor);
-		sortingProcessor.setDelegate(f3);
 		DataSink dataSink = new DataSink(p4);
 				
 		dataSource.start();
