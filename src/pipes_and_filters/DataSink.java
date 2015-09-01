@@ -2,8 +2,8 @@ package pipes_and_filters;
 
 public class DataSink extends Thread {
 	private Pipe incomingPipe;
-		
-	public DataSink(Pipe incomingPipe) {
+	
+	public void setIncomingPipe(Pipe incomingPipe) {
 		this.incomingPipe = incomingPipe;
 	}
 	

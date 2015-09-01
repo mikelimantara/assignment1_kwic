@@ -6,9 +6,12 @@ public class DataSource extends Thread {
 	private Pipe outgoingPipe;
 	private ArrayList<String> initialInput;
 		
-	public DataSource(Pipe outgoingPipe, ArrayList<String> initialInput) {
+	public void setOutgoingPipe(Pipe outgoingPipe) {
 		this.outgoingPipe = outgoingPipe;
-		this.initialInput = initialInput;
+	}
+	
+	public void setInputSentences(ArrayList<String> inputSentences) {
+		this.initialInput = inputSentences;
 	}
 	
 	@Override
