@@ -56,7 +56,7 @@ public class Parser {
 			
 			index++;
 		}
-				
+		parserResult.setValid(true);
 		return parserResult;
 	}	
 }

@@ -39,14 +39,18 @@ public class KWICApp {
 		} catch (IOException e) {
 			System.out.println("There is an error reading the file");
 			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
-	private void setSolveMode(Mode mode) {
+	private void setSolveMode(Mode mode) throws Exception {
 		if (mode == Mode.PIPE_AND_FILTER) {
 			kwicSolver = new PipeAndFilterKWIC();
 		} else if (mode == Mode.SHARED_REPOSITORY) {
 			kwicSolver = new RepositoryKWIC();
+		} else {
+			throw new Exception("ERROR: Invalid mode!");
 		}
 	}
 	
@@ -54,16 +58,23 @@ public class KWICApp {
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		while(br.ready()) {
 			String line = br.readLine();
-			inputSentences.add(line);
+			line = line.trim();
+			if (!line.isEmpty()) {
+				inputSentences.add(line);
+			}
 		}
 		br.close();
 	}
 	
 	private void readNoiseWords(String fileName) throws FileNotFoundException, IOException {
+		if (fileName == null) return;
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		while(br.ready()) {
 			String line = br.readLine();
-			inputSentences.add(line);
+			line = line.trim();
+			if (!line.isEmpty()) {
+				noiseWords.add(line);
+			}
 		}
 		br.close();
 	}
