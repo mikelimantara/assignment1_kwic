@@ -29,13 +29,13 @@ public class SortingProcessorTest {
 	public void testOne() {
 		processor.processData("Hello world");
 		processor.processData("The quick brown fox");
-		processor.processData("Michael");
+		processor.processData("michael");
 		processor.processData("Andhieka");
 		List<String> output = processor.getSentences();
 		
 		assertEquals(output.get(0), "Andhieka");
 		assertEquals(output.get(1), "Hello world");
-		assertEquals(output.get(2), "Michael");
+		assertEquals(output.get(2), "michael");
 		assertEquals(output.get(3), "The quick brown fox");
 	}
 

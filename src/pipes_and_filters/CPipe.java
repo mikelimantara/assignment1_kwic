@@ -1,15 +1,14 @@
 package pipes_and_filters;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CPipe implements Pipe {
 	
-	public LinkedList<String> dataBuffer;
+	public CopyOnWriteArrayList<String> dataBuffer;
 	public Filter outgoingFilter;
 	
 	public CPipe() {
-		dataBuffer = new LinkedList<String>();
+		dataBuffer = new CopyOnWriteArrayList<String>();
 	}
 
 	@Override

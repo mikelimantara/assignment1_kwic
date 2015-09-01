@@ -2,7 +2,6 @@ package pipes_and_filters;
 
 import commons.SentenceProcessor;
 import commons.SentenceProcessorDelegate;
-import commons.SortingProcessor;
 
 
 public class CFilter extends Thread implements Filter, SentenceProcessorDelegate {
@@ -46,6 +45,7 @@ public class CFilter extends Thread implements Filter, SentenceProcessorDelegate
 			} 
 			
 			if (inputData != null) {
+//				String id = sentenceProcessor.getClass().getName();
 //				System.out.println(id + ": " + inputData);
 				sentenceProcessor.processData(inputData);
 			}

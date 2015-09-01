@@ -49,5 +49,25 @@ public class CircularShiftProcessorTest {
 		
 		assertTrue(isCorrect);
 	}
+	
+	@Test
+	public void testTwo() throws Exception {
+		String input = "Fast and Furious";
+		String[] expectedStrings = {
+				"Fast and Furious", 
+				"and Furious Fast",
+				"Furious Fast and"
+		};
+		
+		ArrayList<String> stringResults = processor.permutationsOfSentence(input);
+		
+		boolean isCorrect = true;
+		
+		for (String expected: expectedStrings) {
+			isCorrect = isCorrect && stringResults.contains(expected);
+		}
+		
+		assertTrue(isCorrect);
+	}
 
 }

@@ -11,7 +11,7 @@ public class DataSink extends Thread {
 	public void run() {
 		do {
 			String processedData = incomingPipe.getData();
-
+			
 			if (processedData == "END") {
 				break;
 			} 
