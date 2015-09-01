@@ -19,6 +19,9 @@ public class NoiseWordProcessor implements SentenceProcessor {
 	public boolean beginsWithNoiseWord(String input) {
 		// get first word
 		int firstSpaceIndex = input.indexOf(' ');
+		if (firstSpaceIndex < 0) {
+			firstSpaceIndex = input.length();
+		}
 		String firstWord = input.substring(0, firstSpaceIndex);
 
 		// standardize format
