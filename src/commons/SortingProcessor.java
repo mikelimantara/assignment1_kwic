@@ -5,8 +5,8 @@ import java.util.TreeSet;
 import java.util.List;
 
 public class SortingProcessor implements SentenceProcessor {
-	TreeSet<String> sentences = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-	SentenceProcessorDelegate delegate;
+	private TreeSet<String> sentences = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+	private SentenceProcessorDelegate delegate;
 	
 	@Override
 	public void processData(String input) {
