@@ -5,7 +5,7 @@ import java.util.TreeSet;
 import java.util.List;
 
 public class SortingProcessor implements SentenceProcessor {
-	TreeSet<String> sentences = new TreeSet<String>();
+	TreeSet<String> sentences = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 	SentenceProcessorDelegate delegate;
 	
 	@Override
