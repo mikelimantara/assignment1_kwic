@@ -1,7 +1,12 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import main.ParserResult.Mode;
 import pipes_and_filters.PipeAndFilterKWIC;
 import repository.RepositoryKWIC;
 
@@ -9,42 +14,58 @@ public class KWICApp {
 	private ArrayList<String> inputSentences = new ArrayList<String>();
 	private ArrayList<String> noiseWords = new ArrayList<String>();
 	private KWIC kwicSolver;
+	private Parser parser = new Parser();
 	
 	public static void main(String[] args) {
 		KWICApp app = new KWICApp();
-//		app.run();
-		printHelp();
+		app.run(args);
 	}
 	
-	public void run() {
-		setSolveMode(1);
-		readInputSentences("filename");
-		readNoiseWords("filename");
-		startSolver();
+	public void run(String[] args) {
+		try {
+			ParserResult parserResult = parser.parse(args);
+			if (parserResult.isValid()) {
+				setSolveMode(parserResult.getMode());
+				readInputSentences(parserResult.getInputFile());
+				readNoiseWords(parserResult.getNoiseWordsFile());
+				startSolver();	
+			} else {
+				printError();
+				printHelp();
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Input file is not found");
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println("There is an error reading the file");
+			System.out.println(e.getMessage());
+		}
 	}
 	
-	private void setSolveMode(int mode) {
-		if (mode == 0) {
+	private void setSolveMode(Mode mode) {
+		if (mode == Mode.PIPE_AND_FILTER) {
 			kwicSolver = new PipeAndFilterKWIC();
-		} else if (mode == 1) {
+		} else if (mode == Mode.SHARED_REPOSITORY) {
 			kwicSolver = new RepositoryKWIC();
 		}
 	}
 	
-	private void readInputSentences(String fileName) {
-		inputSentences.add("The Day after Tomorrow");
-		inputSentences.add("Fast and Furious");
-		inputSentences.add("Man of Steel");
+	private void readInputSentences(String fileName) throws FileNotFoundException, IOException {
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		while(br.ready()) {
+			String line = br.readLine();
+			inputSentences.add(line);
+		}
+		br.close();
 	}
 	
-	private void readNoiseWords(String fileName) {
-		noiseWords.add("is");
-		noiseWords.add("the");
-		noiseWords.add("of");
-		noiseWords.add("and");
-		noiseWords.add("as");
-		noiseWords.add("a");
-		noiseWords.add("after");
+	private void readNoiseWords(String fileName) throws FileNotFoundException, IOException {
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		while(br.ready()) {
+			String line = br.readLine();
+			inputSentences.add(line);
+		}
+		br.close();
 	}
 	
 	private void startSolver() {
@@ -65,4 +86,7 @@ public class KWICApp {
 		System.out.println("----------------------------------------------------------------------------");
 	}
 	
+	private void printError() {
+		System.out.println("ERROR: Invalid Input");
+	}
 }
