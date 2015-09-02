@@ -3,6 +3,7 @@ package pipes_and_filters;
 import java.util.ArrayList;
 
 import main.KWIC;
+import commons.CapitalizerProcessor;
 import commons.CircularShiftProcessor;
 import commons.NoiseWordProcessor;
 import commons.SortingProcessor;
@@ -14,10 +15,13 @@ public class PipeAndFilterKWIC implements KWIC {
 	private Pipe p2 = new CPipe();
 	private Pipe p3 = new CPipe();
 	private Pipe p4 = new CPipe();
+	private Pipe p5 = new CPipe();
 	private CFilter circularShiftFilter = new CFilter();
+	private CFilter capitalizerFiler = new CFilter();
 	private CFilter noiseWordFilter = new CFilter();
 	private CFilter sortingFilter = new CFilter();
 	private CircularShiftProcessor circularShiftProcessor = new CircularShiftProcessor();
+	private CapitalizerProcessor capitalizerProcessor = new CapitalizerProcessor();
 	private NoiseWordProcessor noiseWordProcessor = new NoiseWordProcessor();
 	private SortingProcessor sortingProcessor = new SortingProcessor();
 	private DataSource dataSource = new DataSource();
@@ -33,15 +37,19 @@ public class PipeAndFilterKWIC implements KWIC {
 		circularShiftFilter.setOutgoingPipe(p2);
 		circularShiftFilter.setSentenceProcessor(circularShiftProcessor);
 		
-		noiseWordFilter.setIncomingPipe(p2);
-		noiseWordFilter.setOutgoingPipe(p3);
+		capitalizerFiler.setIncomingPipe(p2);
+		capitalizerFiler.setOutgoingPipe(p3);
+		capitalizerFiler.setSentenceProcessor(capitalizerProcessor);
+		
+		noiseWordFilter.setIncomingPipe(p3);
+		noiseWordFilter.setOutgoingPipe(p4);
 		noiseWordFilter.setSentenceProcessor(noiseWordProcessor);
 		
-		sortingFilter.setIncomingPipe(p3);
-		sortingFilter.setOutgoingPipe(p4);
+		sortingFilter.setIncomingPipe(p4);
+		sortingFilter.setOutgoingPipe(p5);
 		sortingFilter.setSentenceProcessor(sortingProcessor);
 		
-		dataSink.setIncomingPipe(p4);
+		dataSink.setIncomingPipe(p5);
 	}
 
 	@Override
@@ -61,6 +69,7 @@ public class PipeAndFilterKWIC implements KWIC {
 		
 		dataSource.start();
 		circularShiftFilter.start();
+		capitalizerFiler.start();
 		noiseWordFilter.start();
 		sortingFilter.start();
 		dataSink.start();

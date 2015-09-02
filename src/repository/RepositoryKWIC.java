@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 import main.KWIC;
-
+import commons.CapitalizerProcessor;
 import commons.CircularShiftProcessor;
 import commons.NoiseWordProcessor;
 
@@ -14,6 +14,7 @@ public class RepositoryKWIC implements KWIC {
 	private TreeSet<String> sentences = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 	private NoiseWordProcessor noiseWordProcessor = new NoiseWordProcessor();
 	private CircularShiftProcessor circularShiftProcessor = new CircularShiftProcessor();
+	private CapitalizerProcessor capitalizerProcessor = new CapitalizerProcessor();
 	
 	@Override
 	public void setInputSentences(ArrayList<String> sentences) {
@@ -30,11 +31,11 @@ public class RepositoryKWIC implements KWIC {
 	@Override
 	public void solve() {
 		generateCircularShift();
+		capitalizeSentences();
 		removeSentencesBeginningWithNoiseWords();
 		sortSentences();
 		printResult();
 	}
-	
 	
 	private void generateCircularShift() {
 		ArrayList<String> allPermutations = new ArrayList<String>();
@@ -43,6 +44,17 @@ public class RepositoryKWIC implements KWIC {
 			allPermutations.addAll(permutations);
 		}
 		sentences.addAll(allPermutations);
+	}
+	
+	private void capitalizeSentences() {
+		Iterator<String> it = sentences.iterator();
+		ArrayList<String> capitalizedSentences = new ArrayList<String>();
+		while(it.hasNext()) {
+			String sentence = it.next();
+			it.remove();
+			capitalizedSentences.add(capitalizerProcessor.capitalizeSentence(sentence));
+		}
+		sentences.addAll(capitalizedSentences);
 	}
 	
 	private void removeSentencesBeginningWithNoiseWords() {
