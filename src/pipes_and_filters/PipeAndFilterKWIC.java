@@ -17,7 +17,7 @@ public class PipeAndFilterKWIC implements KWIC {
 	private Pipe p4 = new CPipe();
 	private Pipe p5 = new CPipe();
 	private CFilter circularShiftFilter = new CFilter();
-	private CFilter capitalizerFiler = new CFilter();
+	private CFilter capitalizerFilter = new CFilter();
 	private CFilter noiseWordFilter = new CFilter();
 	private CFilter sortingFilter = new CFilter();
 	private CircularShiftProcessor circularShiftProcessor = new CircularShiftProcessor();
@@ -37,13 +37,13 @@ public class PipeAndFilterKWIC implements KWIC {
 		circularShiftFilter.setOutgoingPipe(p2);
 		circularShiftFilter.setSentenceProcessor(circularShiftProcessor);
 		
-		capitalizerFiler.setIncomingPipe(p2);
-		capitalizerFiler.setOutgoingPipe(p3);
-		capitalizerFiler.setSentenceProcessor(capitalizerProcessor);
-		
-		noiseWordFilter.setIncomingPipe(p3);
-		noiseWordFilter.setOutgoingPipe(p4);
+		noiseWordFilter.setIncomingPipe(p2);
+		noiseWordFilter.setOutgoingPipe(p3);
 		noiseWordFilter.setSentenceProcessor(noiseWordProcessor);
+		
+		capitalizerFilter.setIncomingPipe(p3);
+		capitalizerFilter.setOutgoingPipe(p4);
+		capitalizerFilter.setSentenceProcessor(capitalizerProcessor);
 		
 		sortingFilter.setIncomingPipe(p4);
 		sortingFilter.setOutgoingPipe(p5);
@@ -69,7 +69,7 @@ public class PipeAndFilterKWIC implements KWIC {
 		
 		dataSource.start();
 		circularShiftFilter.start();
-		capitalizerFiler.start();
+		capitalizerFilter.start();
 		noiseWordFilter.start();
 		sortingFilter.start();
 		dataSink.start();

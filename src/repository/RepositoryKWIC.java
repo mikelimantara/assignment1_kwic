@@ -31,8 +31,8 @@ public class RepositoryKWIC implements KWIC {
 	@Override
 	public void solve() {
 		generateCircularShift();
-		capitalizeSentences();
 		removeSentencesBeginningWithNoiseWords();
+		capitalizeSentences();
 		sortSentences();
 		printResult();
 	}
