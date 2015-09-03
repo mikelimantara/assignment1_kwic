@@ -1,5 +1,8 @@
 package main;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class ParserResult {
 	enum Mode {
 		PIPE_AND_FILTER, SHARED_REPOSITORY

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/*
+ * @author: Andhieka Putra (A0113672L)
+ */
 public class NoiseWordProcessor implements SentenceProcessor {
 	private ArrayList<String> noiseWords = new ArrayList<String>();
 	private SentenceProcessorDelegate delegate = null;

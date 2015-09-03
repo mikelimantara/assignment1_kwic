@@ -1,5 +1,8 @@
 package commons;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class CapitalizerProcessor implements SentenceProcessor {
 
 	private SentenceProcessorDelegate delegate;

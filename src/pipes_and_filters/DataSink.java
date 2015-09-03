@@ -1,5 +1,8 @@
 package pipes_and_filters;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class DataSink extends Thread {
 	private Pipe incomingPipe;
 	

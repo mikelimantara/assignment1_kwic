@@ -2,6 +2,9 @@ package commons;
 
 import java.util.ArrayList;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class CircularShiftProcessor implements SentenceProcessor {
 	private StringBuilder stringBuilder;
 	private SentenceProcessorDelegate delegate;

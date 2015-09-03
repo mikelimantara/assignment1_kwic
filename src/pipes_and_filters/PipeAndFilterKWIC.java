@@ -8,6 +8,9 @@ import commons.CircularShiftProcessor;
 import commons.NoiseWordProcessor;
 import commons.SortingProcessor;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class PipeAndFilterKWIC implements KWIC {
 	private ArrayList<String> inputSentences = new ArrayList<String>();
 	private ArrayList<String> noiseWords = new ArrayList<String>();

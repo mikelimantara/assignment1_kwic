@@ -10,6 +10,9 @@ import commons.CapitalizerProcessor;
 import commons.CircularShiftProcessor;
 import commons.NoiseWordProcessor;
 
+/*
+ * @author: Andhieka Putra (A0113672L)
+ */
 public class RepositoryKWIC implements KWIC {
 	private TreeSet<String> sentences = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 	private NoiseWordProcessor noiseWordProcessor = new NoiseWordProcessor();

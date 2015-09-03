@@ -10,6 +10,9 @@ import main.ParserResult.Mode;
 import pipes_and_filters.PipeAndFilterKWIC;
 import repository.RepositoryKWIC;
 
+/*
+ * @author: Andhieka Putra (A0113672L)
+ */
 public class KWICApp {
 	private ArrayList<String> inputSentences = new ArrayList<String>();
 	private ArrayList<String> noiseWords = new ArrayList<String>();

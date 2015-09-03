@@ -2,6 +2,9 @@ package pipes_and_filters;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class CPipe implements Pipe {
 	
 	public CopyOnWriteArrayList<String> dataBuffer;

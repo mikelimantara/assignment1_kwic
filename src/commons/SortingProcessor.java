@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 import java.util.List;
 
+/*
+ * @author: Andhieka Putra (A0113672L)
+ */
 public class SortingProcessor implements SentenceProcessor {
 	private TreeSet<String> sentences = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 	private SentenceProcessorDelegate delegate;

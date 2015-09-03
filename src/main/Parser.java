@@ -2,6 +2,9 @@ package main;
 
 import main.ParserResult.Mode;
 
+/*
+ * @author: Michael Limantara (A0094022R)
+ */
 public class Parser {
 	
 	public ParserResult parse(String[] args) {
