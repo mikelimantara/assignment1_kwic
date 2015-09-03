@@ -9,6 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	CircularShiftProcessorTest.class,
 	CPipeTest.class,
 	NoiseWordProcessorTest.class,
-	SortingProcessorTest.class
+	SortingProcessorTest.class,
+	CapitalizerProcessorTest.class
 })
 public class AllTest { }
